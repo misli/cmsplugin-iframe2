@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
     name            = 'cmsplugin-iframe2',
-    version         = '1.1.0',
+    version         = '1.2.0',
     description     = 'Customizable Django CMS plugin for including iframes',
     author          = 'Jakub Dorňák',
     author_email    = 'jakub.dornak@misli.cz',
