@@ -5,6 +5,8 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.db.models.deletion
 
+from ..conf import settings
+
 
 class Migration(migrations.Migration):
 
@@ -19,9 +21,9 @@ class Migration(migrations.Migration):
             name='IFramePlugin',
             fields=[
                 ('cmsplugin_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, related_name='cmsplugin_iframe2_iframeplugin', serialize=False, to='cms.CMSPlugin')),
-                ('style', models.CharField(blank=True, choices=[(None, 'no class')], help_text='value of HTML attribute class', max_length=50, null=True, verbose_name='style')),
-                ('width', models.CharField(blank=True, choices=[('200', '200 pixels'), ('400', '400 pixels'), ('800', '800 pixels'), ('100%', '100 %')], max_length=10, null=True, verbose_name='width')),
-                ('height', models.CharField(blank=True, choices=[('150', '150 pixels'), ('300', '300 pixels'), ('600', '600 pixels'), ('1200', '1200 pixels'), ('100%', '100 %')], max_length=10, null=True, verbose_name='height')),
+                ('style', models.CharField(blank=True, choices=settings.CMSPLUGIN_IFRAME_CLASSES, help_text='value of HTML attribute class', max_length=50, null=True, verbose_name='style')),
+                ('width', models.CharField(blank=True, choices=settings.CMSPLUGIN_IFRAME_WIDTHS, max_length=10, null=True, verbose_name='width')),
+                ('height', models.CharField(blank=True, choices=settings.CMSPLUGIN_IFRAME_HEIGHTS, max_length=10, null=True, verbose_name='height')),
                 ('align', models.CharField(blank=True, choices=[('left', 'align left'), ('right', 'align right')], max_length=10, null=True, verbose_name='align')),
                 ('src', models.TextField(verbose_name='url')),
             ],
